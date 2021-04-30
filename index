@@ -1,0 +1,16 @@
+<?php
+//* Do NOT include the opening php tag shown above. Copy the code shown below.
+
+add_filter( 'woocommerce_product_single_add_to_cart_text', 'wps_custom_cart_button_text' );
+/**
+ * Set product button text to productname
+ */
+function wps_custom_cart_button_text() {
+
+	global $product;
+	$id 	= get_the_ID();
+	$title 	= get_the_title( $id );
+
+	return __( 'buy ' . $title, 'your_theme_text_domain' );
+
+}
